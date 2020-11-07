@@ -12,6 +12,6 @@ public class HorizontalParabola {
     }
 
     public boolean isPointInside(Point point) {
-        return point.getY() > a * Math.pow(point.getX(), 2) + b * point.getX() + c;
+        return point.getX() > a * Math.pow(point.getY(), 2) + b * point.getY() + c;
     }
 }
