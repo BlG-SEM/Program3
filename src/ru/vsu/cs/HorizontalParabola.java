@@ -1,6 +1,6 @@
 package ru.vsu.cs;
 
-public class Parabola {
+public class HorizontalParabola {
     public double a;
     public double b;
     public double c;
