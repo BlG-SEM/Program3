@@ -1,7 +1,7 @@
 package ru.vsu.cs
 
 public class Square {
-    public boolean isPointInsideSquare(double x, double y) {
-        return (x >= -6) && (x <= 4) && (y >= 2) && (y <= 6);
+    public boolean isPointInside(double x, double y, double a) {
+        return (x >= -a) && (x <= a - 2) && (y >= a - 4) && (y <= a);
     }
 }
