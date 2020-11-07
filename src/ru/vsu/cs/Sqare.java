@@ -1,7 +1,19 @@
-package ru.vsu.cs
+package ru.vsu.cs;
 
-public class Square {
-    public boolean isPointInside(double x, double y, double a) {
-        return (x >= -a) && (x <= a - 2) && (y >= a - 4) && (y <= a);
+public class Sqare {
+    public double a;
+    public double b;
+    public double c;
+    public double d;
+
+    public Sqare(double a, double b, double c, double d) {
+        this.a = a;
+        this.b = b;
+        this.c = c;
+        this.d = d;
+    }
+
+    public boolean isPointInside(Point point) {
+        return (point.getX() >= a) && (point.getX() <= b) && (point.getY() >= c) && (point.getY() <= d);
     }
 }
