@@ -16,7 +16,19 @@ public class Picture {
     }
 
     public SimpleColor getColor(Point point) {
-
-    
+        
+        if (circle2.isPointInside(point) && parabola1.isPointInside(point)) {
+            return SimpleColor.YELLOW;
+        }
+        if (sqare.isPointInside(point) && parabola1.isPointInside(point) || circle1.isPointInside(point) || circle2.isPointInside(point)) {
+            return SimpleColor.ORANGE;
+        } 
+        if (sqare.isPointInside(point)) {
+            return SimpleColor.GREEN;
+        }  
+        if (parabola1.isPointInside(point)) {
+            return SimpleColor.BLUE;
+        }
+        return SimpleColor.YELLOW;        
     }
 }
