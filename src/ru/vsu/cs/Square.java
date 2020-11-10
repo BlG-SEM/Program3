@@ -1,6 +1,6 @@
 package ru.vsu.cs;
 
-public class Sqare {
+public class Square {
     public double a;
     public double b;
     public double c;
