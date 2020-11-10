@@ -13,45 +13,51 @@ public class Main {
                 new Square(-6, 4, 2, 6)
         );
 
-        if (testPoints(picture)) {
+        if (test) {
+            System.out.println("Test was successful\n");
             start(picture);
         } else {
-            System.out.println("Tests passed incorrectly. The program does not start.");
+            System.out.println("Test failed");
         }
     }
 
     private static void start(Picture picture) {
-        double x = readDouble("x --> ");
-        double y = readDouble("y --> ");
+        String restart = "yes";
+        String restartGet = "yes";
+        
+        while (restart == restartGet.intern()) {
+            double x = readDouble("x --> ");
+            double y = readDouble("y --> ");
 
-        Point point = new Point(x, y);
-        SimpleColor color = picture.getColor(point);
-
-        printColorForPoint(point, color);
+            Point point = new Point(x, y);
+            SimpleColor color = picture.getColor(point);
+            printColorForPoint(color, point);
+            
+            restartGet = readString();
+        }    
     }
 
-    private static boolean testPoints(Picture picture) {
+    private static boolean test(Picture picture) {
         TestCase[] testCases = {new TestCase(-5, 3, SimpleColor.GREEN), new TestCase(-1, 1,
                 SimpleColor.YELLOW), new TestCase(3, 3, SimpleColor.ORANGE), new TestCase(3, 1,
                 SimpleColor.BLUE)};
-
-        boolean result = true;
+        
+        boolean check = true;
         for (int i = 0; i < testCases.length; i++) {
             TestCase testCase = testCases[i];
             Point point = new Point(testCase.getX(), testCase.getY());
+            
             SimpleColor color = picture.getColor(point);
             SimpleColor correctColor = testCase.getCorrectColor();
-
-            boolean check = checkResult(color, correctColor);
-            result = check && result;
-
-            printTest(color, correctColor, point, result);
+            
+            printColorForPoint(color, point)
+            System.out.printf("Expected area is %s\n", correctColor);
+            if (color != expectedColor) {
+                check = false;
+            }
         }
-        return result;
-    }
-
-    private static boolean checkResult(SimpleColor color, SimpleColor correctColor) {
-        return color == correctColor;
+        
+        return check;
     }
 
     private static double readDouble(String name) {
@@ -60,13 +66,13 @@ public class Main {
         return scanner.nextDouble();
     }
 
-    private static void printTest(SimpleColor color, SimpleColor correctColor, Point point, boolean result) {
-        System.out.printf("x = %1$.1f; y = %2$.1f is point in " + color + "\nCorrect color --> " + correctColor + "" +
-                "\nResult: " + result + "\n", point.x, point.y);
-        System.out.println("-------------------");
+    private static String readString() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.printf("Restart? [yes/no]");
+        return scanner.next();
     }
 
-    private static void printColorForPoint(Point point, SimpleColor color) {
+    private static void printColorForPoint(SimpleColor color, Point point) {
         System.out.printf("x = %1$.1f; y = %2$.1f is point in " + color + "\n", point.x, point.y);
     }
 }
