@@ -22,10 +22,9 @@ public class Main {
     }
 
     private static void start(Picture picture) {
-        String restart = "yes";
         String restartGet = "yes";
         
-        while (restart == restartGet.intern()) {
+        while (restartGet.intern() == String("yes").intern()) {
             double x = readDouble("x --> ");
             double y = readDouble("y --> ");
 
@@ -33,7 +32,7 @@ public class Main {
             SimpleColor color = picture.getColor(point);
             printColorForPoint(color, point);
             
-            restartGet = readString();
+            restartGet = makeADecision();
         }    
     }
 
@@ -66,7 +65,7 @@ public class Main {
         return scanner.nextDouble();
     }
 
-    private static String readString() {
+    private static String makeADecision() {
         Scanner scanner = new Scanner(System.in);
         System.out.printf("Restart? [yes/no]");
         return scanner.next();
