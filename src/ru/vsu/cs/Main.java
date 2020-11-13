@@ -22,9 +22,9 @@ public class Main {
     }
 
     private static void start(Picture picture) {
-        String restartGet = "yes";
+        String restartYet = "yes";
         
-        while (restartGet.intern() == String("yes").intern()) {
+        while (restartYet.intern() == String("yes").intern()) {
             double x = readDouble("x --> ");
             double y = readDouble("y --> ");
 
@@ -32,7 +32,7 @@ public class Main {
             SimpleColor color = picture.getColor(point);
             printColorForPoint(color, point);
             
-            restartGet = makeADecision();
+            restartYet = makeADecision();
         }    
     }
 
