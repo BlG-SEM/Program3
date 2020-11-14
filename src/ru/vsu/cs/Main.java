@@ -12,7 +12,8 @@ public class Main {
                 new Parabola(-1.0 / 4, 3, -4),
                 new Square(-6, 4, 2, 6)
         );
-
+        
+        boolean test = test(picture);
         if (test) {
             System.out.println("Test was successful\n");
             start(picture);
