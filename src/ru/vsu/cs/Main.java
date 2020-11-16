@@ -23,8 +23,8 @@ public class Main {
     }
 
     private static void start(Picture picture) {
-        String restartYet = "yes";
-        while (restartYet.intern() == String("yes").intern()) {
+        String restartCalculate = "yes";
+        while (restartCalculate.intern() == String("yes").intern()) {
             double x = readDouble("x --> ");
             double y = readDouble("y --> ");
 
