@@ -32,7 +32,7 @@ public class Main {
             SimpleColor color = picture.getColor(point);
             printColorForPoint(color, point);
             
-            restartYet = makeADecision();
+            restartCalculate = makeADecision();
         }    
     }
 
