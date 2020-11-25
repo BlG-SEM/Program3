@@ -51,7 +51,7 @@ public class Main {
             
             printColorForPoint(color, point)
             System.out.printf("Expected area is %s\n", correctColor);
-            if (color != expectedColor) {
+            if (color != correctColor) {
                 check = false;
             }
         }
